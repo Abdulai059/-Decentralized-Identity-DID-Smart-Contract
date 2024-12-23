@@ -57,7 +57,7 @@ contract IdentityManagement {
 
     // Functions
 
-    //@notice Register an identity (_name Name, _email Email_verificationDocument Verification).
+    // Register an identity (_name Name, _email Email_verificationDocument Verification).
 
     function registerIdentity(
         string calldata _name,
@@ -81,8 +81,8 @@ contract IdentityManagement {
         emit IdentityRegistered(msg.sender, _name, _email);
     }
 
-    // @notice Verify an identity.
-    //@param user Address of the identity owner to verify.
+    //  Verify an identity.
+    // user Address of the identity owner to verify.
 
     function verifyIdentity(address user) external onlyVerifier {
         require(
@@ -97,8 +97,8 @@ contract IdentityManagement {
         emit IdentityVerified(user, msg.sender);
     }
 
-    // @notice Revoke an identity.
-    // @param user Address of the identity owner to revoke.
+    //  Revoke an identity.
+    // param user Address of the identity owner to revoke.
 
     function revokeIdentity(address user) external onlyVerifier {
         require(
@@ -136,8 +136,8 @@ contract IdentityManagement {
         );
     }
 
-    // @notice Add a new verifier.
-    // @param verifier Address to authorize as a verifier.
+    // Add a new verifier.
+    // verifier Address to authorize as a verifier.
 
     function addVerifier(address verifier) external onlyManager {
         require(!authorizedVerifiers[verifier], "Verifier already authorized");
@@ -146,8 +146,8 @@ contract IdentityManagement {
         emit VerifierAdded(verifier);
     }
 
-    // @notice Remove an existing verifier.
-    // @param verifier Address to remove from verifiers.
+    // notice Remove an existing verifier.
+    // param verifier Address to remove from verifiers.
 
     function removeVerifier(address verifier) external onlyManager {
         require(authorizedVerifiers[verifier], "Verifier not authorized");
